@@ -1,0 +1,71 @@
+{
+  "name": "cobol-check-dialect-for-cobol",
+  "displayName": "COBOL Dialect Support for COBOL CHECK",
+  "description": "Autocomplete, highlighting and diagnostics for COBOL CHECK",
+  "author": "Broadcom",
+  "license": "EPL-2.0",
+  "version": "0.0.1",
+  "preview": false,
+  "publisher": "BroadcomMFD",
+  "keywords" : [
+    "cobol check",
+    "cobol",
+    "mainframe",
+    "zowe"
+  ],
+  "engines": {
+    "vscode": "^1.74.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/amantheap/che-che4z-lsp-for-cobol.git"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "icon": "resources/logo.png",
+  "activationEvents": [
+    "onCommand:cobol-lsp.smart-tab",
+    "onCommand:cobol-lsp.dialect.register",
+    "onLanguage:cobol",
+    "workspaceContains:/.c4z"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": []
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "node ./out/test/runTest.js",
+    "package": "vsce package"
+  },
+  "devDependencies": {
+    "@types/glob": "^8.0.0",
+    "@types/mocha": "^10.0.1",
+    "@types/node": "16.x",
+    "@types/vscode": "1.74.0",
+    "@typescript-eslint/eslint-plugin": "^5.45.0",
+    "@typescript-eslint/parser": "^5.45.0",
+    "@vscode/test-electron": "^2.2.0",
+    "@vscode/vsce": "2.18.0",
+    "eslint": "^8.28.0",
+    "eslint-plugin-sonarjs": "^0.15.0",
+    "glob": "^8.0.3",
+    "mocha": "^10.1.0",
+    "patch-package": "^6.4.7",
+    "prettier": "2.8.7",
+    "ts-jest": "^29.0.1",
+    "tslint": "^5.18.0",
+    "typescript": "4.9.5"
+  },
+  "extensionDependencies": [
+    "BroadcomMFD.cobol-language-support"
+  ],
+  "dependencies": {
+    "@code4z/cobol-dialect-api": "file:../cobol-dialect-api"
+  }
+}
